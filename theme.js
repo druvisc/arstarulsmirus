@@ -1,7 +1,10 @@
 const animationSpeedFast = "0.75s";
-const animationSpeedSlow = "1.75s";
+const animationSpeedSlow = "5s";
+
 const animationDelay = "0.25s";
-const easingFunction = "cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+
+const easingFunctionSlide = "cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+const easingFunctionFade = "cubic-bezier(0.39, 0.575, 0.565, 1)";
 
 const THEME = {
   colors: {
@@ -10,9 +13,6 @@ const THEME = {
   letterSpacing: {
     brand: ".25em",
     "brand-lg": ".36em",
-  },
-  transitionTimingFunction: {
-    "in-cubic": easingFunction,
   },
   keyframes: {
     "fade-in": {
@@ -45,10 +45,10 @@ const THEME = {
     },
   },
   animation: {
-    "fade-in": `fade-in ${animationSpeedSlow} ${easingFunction} ${animationDelay} forwards`,
-    "fade-in-fast": `fade-in ${animationSpeedFast} ${easingFunction} ${animationDelay} forwards`,
-    "slide-in-right": `slide-in-right ${animationSpeedSlow} ${easingFunction} ${animationDelay} forwards`,
-    "slide-in-left": `slide-in-left ${animationSpeedSlow} ${easingFunction} ${animationDelay} forwards`,
+    "fade-in": `fade-in ${animationSpeedSlow} ${easingFunctionFade} ${animationDelay} forwards`,
+    "fade-in-fast": `fade-in ${animationSpeedFast} ${easingFunctionFade} forwards`,
+    "slide-in-right": `slide-in-right ${animationSpeedSlow} ${easingFunctionSlide} ${animationDelay} forwards`,
+    "slide-in-left": `slide-in-left ${animationSpeedSlow} ${easingFunctionSlide} ${animationDelay} forwards`,
   },
 };
 

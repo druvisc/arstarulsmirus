@@ -34,7 +34,7 @@ export const Animate: React.FC<AnimateProps> = ({
       triggerOnce
       threshold={threshold}
       onChange={(inView) => setInView(inView)}
-      className={cx([className, "opacity-0", inView && animate && animation])}
+      className={cx(["opacity-0", className, inView && animate && animation])}
     >
       {children}
     </InView>
