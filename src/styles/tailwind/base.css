@@ -5,7 +5,7 @@
       @apply text-sm
       w-full pb-2
       outline-none shadow-none
-      border-b border-solid border-brand
+      rounded-none border-b border-solid border-brand
       placeholder:text-brand placeholder:opacity-40;
 
       &:focus-visible {
