@@ -28,6 +28,10 @@ module.exports = {
             key: "Content-Security-Policy",
             value: ContentSecurityPolicy.replace(/\s{2,}/g, " ").trim(),
           },
+          {
+            key: "Cache-Control",
+            value: "no-cache, no-store, max-age=0, must-revalidate",
+          },
         ],
       },
     ];
