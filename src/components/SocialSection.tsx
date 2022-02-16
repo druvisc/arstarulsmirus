@@ -31,7 +31,11 @@ export const SocialSection = () => {
           {
             node: facebook && (
               <Link href={`https://www.facebook.com/${facebook}/`}>
-                <a target="_blank" rel="noopener noreferrer">
+                <a
+                  aria-label="facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Facebook />
                 </a>
               </Link>
@@ -40,7 +44,11 @@ export const SocialSection = () => {
           {
             node: instagram && (
               <Link href={`https://www.instagram.com/${instagram}/`}>
-                <a target="_blank" rel="noopener noreferrer">
+                <a
+                  aria-label="instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Instagram />
                 </a>
               </Link>
@@ -49,7 +57,11 @@ export const SocialSection = () => {
           {
             node: youtube && (
               <Link href={`https://www.youtube.com/user/${youtube}`}>
-                <a target="_blank" rel="noopener noreferrer">
+                <a
+                  aria-label="youtube"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <YouTube />
                 </a>
               </Link>
@@ -58,7 +70,11 @@ export const SocialSection = () => {
           {
             node: twitter && (
               <Link href={`https://twitter.com/${twitter}`}>
-                <a target="_blank" rel="noopener noreferrer">
+                <a
+                  aria-label="twitter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Twitter />
                 </a>
               </Link>
