@@ -1,0 +1,15 @@
+{
+  "image": "/images/uploads/skatupunkti.jpg",
+  "concerts": [
+    {
+      "title": "6. maijā Liepājā",
+      "subtitle": "Koncertzālē Lielais Dzintars"
+    },
+    {
+      "title": "13. maijā Cēsīs",
+      "subtitle": "Vidzemes koncertzālē"
+    }
+  ],
+  "concertLink": "https://www.aula.lv/pasakumi/arstarulsmirus-koncertserija-skatu-punkti",
+  "concertText": "Iegādāties biļeti"
+}

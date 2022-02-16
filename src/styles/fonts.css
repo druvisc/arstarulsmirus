@@ -1,0 +1,7 @@
+@font-face {
+  font-family: GT-Eesti-Text-Regular;
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("/assets/fonts/GT-Eesti-Text-Regular.woff") format("woff");
+}

@@ -1,0 +1,98 @@
+backend:
+  name: git-gateway
+  branch: main
+publish_mode: editorial_workflow
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: "hero"
+    label: "Hero"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "hero"
+        label: "Hero"
+        file: "content/hero.json"
+        description: "Hero"
+        fields:
+          - label: "YouTube ID"
+            name: "youtubeId"
+            widget: "string"
+            optional: false
+          - label: "Spotify Text"
+            name: "spotifyText"
+            widget: "string"
+          - label: "Spotify Link"
+            name: "spotifyLink"
+            widget: "string"
+            optional: true
+          - label: "Purchase Text"
+            name: "purchaseText"
+            widget: "string"
+          - label: "Single Link"
+            name: "purchaseLink"
+            widget: "string"
+            optional: true
+  - name: "concerts"
+    label: "Concerts"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "concerts"
+        label: "Concerts"
+        file: "content/concerts.json"
+        description: "Concerts"
+        fields:
+          - label: "Featured Image"
+            name: "image"
+            widget: "image"
+            optional: true
+          - label: "Concerts"
+            name: "concerts"
+            widget: "list"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Where"
+                name: "subtitle"
+                widget: "string"
+            optional: true
+          - label: "Concert Text"
+            name: "concertText"
+            widget: "string"
+            optional: true
+          - label: "Concert Link"
+            name: "concertLink"
+            widget: "string"
+            optional: true
+  - name: "social"
+    label: "Social"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "social"
+        label: "Social"
+        file: "content/social.json"
+        description: "Social"
+        fields:
+          - label: "Facebook"
+            name: "facebook"
+            widget: "string"
+            optional: true
+          - label: "Instagram"
+            name: "instagram"
+            widget: "string"
+            optional: true
+          - label: "YouTube"
+            name: "youtube"
+            widget: "string"
+            optional: true
+          - label: "Twitter"
+            name: "twitter"
+            widget: "string"
+            optional: true

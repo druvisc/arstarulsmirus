@@ -1,0 +1,11 @@
+@layer utilities {
+  .tracking-brand {
+    @apply uppercase;
+
+    letter-spacing: theme("letterSpacing.brand");
+
+    @media screen(lg) {
+      letter-spacing: theme("letterSpacing.brand-lg");
+    }
+  }
+}
