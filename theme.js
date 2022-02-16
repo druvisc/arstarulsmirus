@@ -1,5 +1,5 @@
 const animationSpeedFast = "0.75s";
-const animationSpeedSlow = "5s";
+const animationSpeedSlow = "1.75s";
 
 const animationDelay = "0.25s";
 
