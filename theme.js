@@ -23,6 +23,15 @@ const THEME = {
         opacity: "1",
       },
     },
+    "fade-out": {
+      "0%": {
+        // Fade out from any opacity.
+        // opacity: "1",
+      },
+      "100%": {
+        opacity: "0",
+      },
+    },
     "slide-in-right": {
       "0%": {
         opacity: "0",
@@ -47,6 +56,10 @@ const THEME = {
   animation: {
     "fade-in": `fade-in ${animationSpeedSlow} ${easingFunctionFade} ${animationDelay} forwards`,
     "fade-in-fast": `fade-in ${animationSpeedFast} ${easingFunctionFade} forwards`,
+
+    "fade-out": `fade-out ${animationSpeedSlow} ${easingFunctionFade} ${animationDelay} forwards`,
+    "fade-out-fast": `fade-out ${animationSpeedFast} ${easingFunctionFade} forwards`,
+
     "slide-in-right": `slide-in-right ${animationSpeedSlow} ${easingFunctionSlide} ${animationDelay} forwards`,
     "slide-in-left": `slide-in-left ${animationSpeedSlow} ${easingFunctionSlide} ${animationDelay} forwards`,
   },

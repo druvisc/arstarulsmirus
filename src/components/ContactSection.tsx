@@ -45,97 +45,102 @@ export const ContactSection = () => {
 
   return (
     <section className="relative px-[10%] mb-20 lg:mb-28 flex flex-col items-center">
-      <Animate animation="animate-fade-in">
+      <Animate animation={formState ? "animate-fade-out" : "animate-fade-in"}>
         <Button inverse onClick={() => setIsFormVisible(!isFormVisible)}>
           Sazinies ar mani
         </Button>
       </Animate>
 
-      <div
-        className={cx([
-          "absolute h-full flex items-center text-4xl lg:text-6xl",
-          "transition-opacity duration-1000",
-          formState ? "opacity-100" : "opacity-0",
-        ])}
+      <Animate
+        animate={!!formState}
+        animation="animate-fade-in"
+        className="absolute h-full flex items-center text-4xl lg:text-6xl"
       >
         {formState === "error" && (
           <>Atvaino! Notika kļūda, raksti arstarulsmirus@gmail.com.</>
         )}
 
         {formState === "success" && <>Paldies!</>}
-      </div>
+      </Animate>
 
       {isFormVisible && (
-        <form
-          ref={ref}
-          className={cx(
-            "mt-16 w-[700px] max-w-full flex flex-col space-y-8",
-            "transition-opacity duration-1000",
-            formState ? "opacity-0" : "opacity-100"
-          )}
-          name="contact"
-          onSubmit={onSubmit}
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" name="subject" value="" />
+        <Animate animation={formState ? "animate-fade-out" : "animate-fade-in-fast"}>
+          <form
+            ref={ref}
+            className="mt-16 w-[700px] max-w-full flex flex-col space-y-8"
+            name="contact"
+            onSubmit={onSubmit}
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="subject" value="" />
 
-          <div hidden aria-hidden="true">
-            <label>
-              <input name="honeypot" />
-            </label>
-          </div>
+            <div hidden aria-hidden="true">
+              <label>
+                <input name="honeypot" />
+              </label>
+            </div>
 
-          <div>
-            <label hidden htmlFor="name">
-              Vārds
-            </label>
+            <div>
+              <label hidden htmlFor="name">
+                Vārds
+              </label>
 
-            <input
-              required
-              type="text"
-              name="name"
-              placeholder="Vārds"
-              value={name}
-              onChange={onChange}
-            />
-          </div>
+              <input
+                required
+                type="text"
+                name="name"
+                placeholder="Vārds"
+                value={name}
+                onChange={onChange}
+              />
+            </div>
 
-          <div>
-            <label hidden htmlFor="email">
-              E-pasts
-            </label>
+            <div>
+              <label hidden htmlFor="email">
+                E-pasts
+              </label>
 
-            <input
-              required
-              type="email"
-              name="email"
-              placeholder="E-pasts"
-              value={email}
-              onChange={onChange}
-            />
-          </div>
+              <input
+                required
+                type="email"
+                name="email"
+                placeholder="E-pasts"
+                value={email}
+                onChange={onChange}
+              />
+            </div>
 
-          <div>
-            <label hidden htmlFor="message">
-              Ziņa
-            </label>
+            <div>
+              <label hidden htmlFor="message">
+                Ziņa
+              </label>
 
-            <textarea
-              required
-              name="message"
-              placeholder="Ziņa"
-              value={message}
-              onChange={onChange}
-            ></textarea>
-          </div>
+              <textarea
+                required
+                name="message"
+                placeholder="Ziņa"
+                value={message}
+                onChange={onChange}
+              ></textarea>
+            </div>
 
-          <div className="flex justify-center">
-            <Button type="submit" disabled={!!formState}>
-              Sūtīt
-            </Button>
-          </div>
-        </form>
+            <div className="flex justify-center">
+              <Button type="submit" disabled={!!formState}>
+                Sūtīt
+              </Button>
+            </div>
+          </form>
+        </Animate>
       )}
     </section>
   );
 };
+
+// TODO: Map names, types from actual form?
+export const ContactForm = () => (
+  <form name="contact" data-netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
+  </form>
+);

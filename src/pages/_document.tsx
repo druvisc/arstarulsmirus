@@ -8,6 +8,8 @@ import NextDocument, {
 
 import theme from "../../theme";
 
+import { FormsHelper } from "../components/FormsHelper";
+
 class Document extends NextDocument {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await NextDocument.getInitialProps(ctx);
@@ -36,6 +38,8 @@ class Document extends NextDocument {
           <Main />
           <NextScript />
         </body>
+
+        <FormsHelper />
       </Html>
     );
   }
