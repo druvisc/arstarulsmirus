@@ -1,5 +1,6 @@
 import { Breakpoint } from "../styles/variables";
 
+// Prefix class by specified breakpoint.
 export const getClasses = (breakpoint: Breakpoint, classes: string[]) =>
   classes.map((className) => `${breakpoint}:${className}`).join(" ");
 
@@ -29,7 +30,6 @@ export const handleSubmit = async (
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: encode({
       "form-name": e.currentTarget.getAttribute("name"),
-      subject: `Jauna ziņa no ${window.location.host}: ${data.name}`,
       ...data,
     }),
   });

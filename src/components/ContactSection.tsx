@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import cx from "classnames";
 
 import { handleSubmit, scrollIntoView } from "../utils";
 
@@ -28,7 +27,10 @@ export const ContactSection = () => {
     setFormState("loading");
 
     try {
-      handleSubmit(e, formData);
+      handleSubmit(e, {
+        ...formData,
+        subject: `Jauna ziņa no ${window.location.host}: ${formData.name}`,
+      });
       setFormState("success");
     } catch (err) {
       setFormState("error");
@@ -64,21 +66,25 @@ export const ContactSection = () => {
       </Animate>
 
       {isFormVisible && (
-        <Animate animation={formState ? "animate-fade-out" : "animate-fade-in-fast"}>
+        <Animate
+          animation={formState ? "animate-fade-out" : "animate-fade-in-fast"}
+        >
           <form
             ref={ref}
-            className="mt-16 w-[700px] max-w-full flex flex-col space-y-8"
-            name="contact"
+            name={form.name}
             onSubmit={onSubmit}
+            className="mt-16 w-[700px] max-w-full flex flex-col space-y-8"
           >
-            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="form-name" value={form.name} />
             <input type="hidden" name="subject" value="" />
 
-            <div hidden aria-hidden="true">
-              <label>
-                <input name="honeypot" />
-              </label>
-            </div>
+            {form.honeypot && (
+              <div hidden aria-hidden="true">
+                <label>
+                  <input name={form.honeypot} />
+                </label>
+              </div>
+            )}
 
             <div>
               <label hidden htmlFor="name">
@@ -87,8 +93,8 @@ export const ContactSection = () => {
 
               <input
                 required
-                type="text"
-                name="name"
+                type={form.input.name.type}
+                name={form.input.name.name}
                 placeholder="Vārds"
                 value={name}
                 onChange={onChange}
@@ -102,8 +108,8 @@ export const ContactSection = () => {
 
               <input
                 required
-                type="email"
-                name="email"
+                type={form.input.email.type}
+                name={form.input.email.name}
                 placeholder="E-pasts"
                 value={email}
                 onChange={onChange}
@@ -117,7 +123,7 @@ export const ContactSection = () => {
 
               <textarea
                 required
-                name="message"
+                name={form.textarea.message.name}
                 placeholder="Ziņa"
                 value={message}
                 onChange={onChange}
@@ -136,11 +142,31 @@ export const ContactSection = () => {
   );
 };
 
-// TODO: Map names, types from actual form?
+const form = {
+  name: "contact",
+  honeypot: "honeypot",
+  subject: "",
+  input: {
+    name: {
+      type: "text",
+      name: "name",
+    },
+    email: {
+      type: "text",
+      name: "email",
+    },
+  },
+  textarea: {
+    message: {
+      name: "message",
+    },
+  },
+};
+
 export const ContactForm = () => (
-  <form name="contact" data-netlify netlify-honeypot="bot-field" hidden>
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <textarea name="message"></textarea>
+  <form hidden name={form.name} data-netlify netlify-honeypot={form.honeypot}>
+    <input type={form.input.name.type} name={form.input.name.name} />
+    <input type={form.input.email.type} name={form.input.email.name} />
+    <textarea name={form.textarea.message.name}></textarea>
   </form>
 );
